@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from '../features/counter/counterSlice';
-import todoReducer from '../features/todo/todoSlice';
+import todoReducer from '../components/todo/todoSlice';
 
-export default configureStore({
-    reducer : {
-        counter: counterReducer,
-        todos : todoReducer,
-    }
-})
+const store = configureStore({
+    reducer: {
+        todos: todoReducer
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
+});
+
+export default store;
