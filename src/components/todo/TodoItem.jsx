@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteTodo, openUpdateModel, toggleComplete } from "./todoSlice";
 
 const TodoItem = ({ todo, number }) => {
-  const {isOpen} = useSelector(state => state.todos);
   const { id, text, isCompleted, createdAt } = todo;
   const dispatch = useDispatch();
 

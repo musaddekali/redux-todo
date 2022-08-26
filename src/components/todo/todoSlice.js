@@ -17,11 +17,10 @@ export const setTodo = createAsyncThunk('todos/setTodo', async (todoText) => {
     }
 })
 
-export const updateTodo = createAsyncThunk('todos/updateTodo', async ({id, text}) => {
+export const updateTodo = createAsyncThunk('todos/updateTodo', async ({ id, text }) => {
     try {
         const ref = doc(db, 'todos', id);
-        await updateDoc(ref, {text})
-        console.log('update -> ', id, text);
+        await updateDoc(ref, { text })
     } catch (error) {
         console.log('Todo update firebase problem -> ', error)
     }
