@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
-import { deleteTodo, toggleComplete } from "./todoSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, openUpdateModel, toggleComplete } from "./todoSlice";
 
 const TodoItem = ({ todo, number }) => {
+  const {isOpen} = useSelector(state => state.todos);
   const { id, text, isCompleted, createdAt } = todo;
   const dispatch = useDispatch();
 
@@ -22,15 +23,28 @@ const TodoItem = ({ todo, number }) => {
         </div>
         <time className="text-xs">{createdAt.toDate().toLocaleString()}</time>
       </div>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          dispatch(deleteTodo(id));
-        }}
-        className="px-4 py-1.5 inline-block rounded-full bg-red-400 text-white transition hover:bg-red-500"
-      >
-        Remove
-      </button>
+      <div className="flex gap-2">
+        {/* Edit btn  */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(openUpdateModel(id));
+          }}
+          className="px-4 py-1.5 inline-block rounded-full bg-sky-600 text-white transition hover:bg-sky-500"
+        >
+          Edit
+        </button>
+        {/* Delete btn  */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(deleteTodo(id));
+          }}
+          className="px-4 py-1.5 inline-block rounded-full bg-red-400 text-white transition hover:bg-red-500"
+        >
+          Remove
+        </button>
+      </div>
     </li>
   );
 };
