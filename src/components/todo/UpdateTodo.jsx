@@ -14,7 +14,7 @@ const UpdateTodo = () => {
       return;
     }
     if (isEdit && editItem) {
-      dispatch(updateTodo({id: editItem.id, text}));
+      dispatch(updateTodo({ id: editItem.id, text }));
     }
     dispatch(closeUpdateModel());
     setText("");
@@ -27,35 +27,37 @@ const UpdateTodo = () => {
   }, [isEdit, editItem]);
 
   return (
-    <section className="update-todo grid place-items-center fixed top-0 left-0 right-0 bottom-0 bg-gray-700/50">
-      <div className="container p-4 mb-8 border rounded-lg  bg-white shadow">
-        <div className="text-right">
-          <button
-            onClick={() => dispatch(closeUpdateModel())}
-            className="p-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-          >
-            Cencle
-          </button>
-        </div>
-        <form onSubmit={handleFormSubmit} className="">
-          <label htmlFor="text" className="block mb-4">
-            <span className="block text-center mb-2">Update Item</span>
-            <input
-              onChange={(e) => setText(e.target.value)}
-              value={text}
-              className="w-full py-1.5 px-4 border border-teal-300 rounded-full outline-none hover:bg-slate-100 focus:border-teal-500"
-              type="text"
-              id="text"
-            />
-          </label>
-          <div className="text-right">
-            <button className="px-6 py-1.5 rounded-full bg-sky-600 text-white hover:bg-sky-500 transition">
-              Update
+    <div className="update-todo d-flex justify-content-center align-items-center position-fixed start-0 end-0 top-0 bottom-0 bg-secondary">
+      <div className="container">
+        <div className="p-2 mb-4 border rounded  bg-white shadow-sm">
+          <div className="text-end">
+            <button
+              onClick={() => dispatch(closeUpdateModel())}
+              className="btn btn-danger"
+            >
+              Cencle
             </button>
           </div>
-        </form>
+          <form onSubmit={handleFormSubmit} className="">
+            <label htmlFor="text" className="d-block text-center">
+              <span className="d-inline-block mb-2">Update Item</span>
+              <input
+                onChange={(e) => setText(e.target.value)}
+                value={text}
+                className="form-control rounded-pill mb-3"
+                type="text"
+                id="text"
+              />
+            </label>
+            <div className="text-end">
+              <button className="btn btn-info px-3 py-1 rounded-pill">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

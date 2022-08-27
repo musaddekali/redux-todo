@@ -34,7 +34,7 @@ const Todo = () => {
   return (
     <>
       <div className="container todo">
-        <h1 className="text-xl capitalize text-teal-500 text-center mb-6">
+        <h1 className="h4 text-info text-center mb-4">
           Daily Notes
         </h1>
         <TodoForm />
@@ -42,8 +42,8 @@ const Todo = () => {
         {isOpen && <UpdateTodo />}
       </div>
       <footer className="footer">
-        <div className="container py-8">
-          <p className="text-md text-sky-500 text-center">
+        <div className="container py-3">
+          <p className="text-center text-info">
             Created with React, Redux, Firebase and Tailwind css.
           </p>
         </div>

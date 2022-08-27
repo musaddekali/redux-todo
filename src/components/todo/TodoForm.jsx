@@ -19,21 +19,21 @@ const TodoForm = () => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="p-4 mb-8 border rounded-lg shadow"
+      className="border p-3 rounded shadow-sm mb-4"
     >
-      <label htmlFor="text" className="block mb-4">
-        <span className="block text-center mb-2">Add Item</span>
+      <label htmlFor="text" className="d-block text-center">
+        <span className="d-inline-block mb-2">Add Item</span>
         <input
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className="w-full py-1.5 px-4 border border-teal-300 rounded-full outline-none hover:bg-slate-100 focus:border-teal-500"
+          className="form-control rounded-pill mb-3"
           type="text"
           id="text"
           placeholder="Add Item..."
         />
       </label>
-      <div className="text-right">
-        <button className="px-6 py-1.5 rounded-full bg-sky-600 text-white hover:bg-sky-500 transition">
+      <div className="text-end">
+        <button className="btn btn-success px-3 py-1 rounded-pill">
           Add
         </button>
       </div>
