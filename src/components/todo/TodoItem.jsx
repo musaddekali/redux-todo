@@ -9,8 +9,8 @@ const TodoItem = ({ todo, number }) => {
     <li
       onClick={() => dispatch(toggleComplete(id))}
       title="Click to select as done"
-      className={`flex items-center justify-between gap-2 flex-wrap p-2 rounded-md border shadow bg-white hover:bg-green-300 transition ${
-        isCompleted ? "bg-green-400 text-white" : ""
+      className={`flex items-center justify-between gap-2 flex-wrap p-2 rounded-md border shadow bg-white hover:bg-slate-100 transition ${
+        isCompleted ? "!bg-green-500 text-white" : ""
       }`}
     >
       <div className="grid gap-2">
