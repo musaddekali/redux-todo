@@ -8,7 +8,7 @@ import { todoRealtimeUpdate } from "./todoSlice";
 import UpdateTodo from "./UpdateTodo";
 
 const Todo = () => {
-  const {isOpen} = useSelector(state => state.todos);
+  const { isOpen } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   // Get todos realtime update
@@ -34,9 +34,7 @@ const Todo = () => {
   return (
     <>
       <div className="container todo">
-        <h1 className="h4 text-info text-center mb-4">
-          Daily Notes
-        </h1>
+        <h1 className="h4 text-info text-center mb-4">Daily Notes</h1>
         <TodoForm />
         <TodoList />
         {isOpen && <UpdateTodo />}
@@ -44,8 +42,31 @@ const Todo = () => {
       <footer className="footer">
         <div className="container py-3">
           <p className="text-center text-info">
-            Created with React, Redux, Firebase and Tailwind css.
+            Created with React, Redux, Firebase and Bootstrap 5.
           </p>
+          <h4 className="mb-3 text-danger fw-bold">
+            Same Todo with another library.
+          </h4>
+          <div className="d-flex flex-wrap gap-2">
+            <a
+              href="https://redux-todo1.netlify.app"
+              className="btn btn-success px-3 py-1 rounded-pill"
+            >
+              Tailwind CSS
+            </a>
+            <a
+              href="https://redux-bs-todo1.netlify.app"
+              className="btn btn-secondary px-3 py-1 rounded-pill"
+            >
+              Bootstrap 5
+            </a>
+            <a
+              href="https://redux-mui-todo1.netlify.app"
+              className="btn btn-success px-3 py-1 rounded-pill"
+            >
+              Material UI
+            </a>
+          </div>
         </div>
       </footer>
     </>
