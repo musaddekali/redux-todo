@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { db } from "../../firebase/firebase.config";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
@@ -9,7 +9,6 @@ import { todoRealtimeUpdate } from "./todoSlice";
 import UpdateTodo from "./UpdateTodo";
 
 const Todo = () => {
-  const { isOpen } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   // Get todos realtime update
