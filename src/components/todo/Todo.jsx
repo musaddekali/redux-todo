@@ -1,3 +1,4 @@
+import { Container, Typography } from "@mui/material";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +9,7 @@ import { todoRealtimeUpdate } from "./todoSlice";
 import UpdateTodo from "./UpdateTodo";
 
 const Todo = () => {
-  const {isOpen} = useSelector(state => state.todos);
+  const { isOpen } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   // Get todos realtime update
@@ -33,20 +34,25 @@ const Todo = () => {
 
   return (
     <>
-      <div className="container todo">
-        <h1 className="text-xl capitalize text-teal-500 text-center mb-6">
+      <Container>
+        <Typography variant="h5" color="primary" textAlign="center" mb={2}>
           Daily Notes
-        </h1>
+        </Typography>
         <TodoForm />
         <TodoList />
-        {isOpen && <UpdateTodo />}
-      </div>
-      <footer className="footer">
-        <div className="container py-8">
-          <p className="text-md text-sky-500 text-center">
+        {/* {isOpen && <UpdateTodo />} */}
+        <UpdateTodo />
+      </Container>
+      <footer>
+        <Container py={4}>
+          <Typography
+            variant="body1"
+            color="primary"
+            sx={{ textAlign: "center", py: 4 }}
+          >
             Created with React, Redux, Firebase and Tailwind css.
-          </p>
-        </div>
+          </Typography>
+        </Container>
       </footer>
     </>
   );

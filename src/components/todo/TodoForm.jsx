@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setTodo } from "./todoSlice";
+import { Button, TextField } from "@mui/material";
 
 const TodoForm = () => {
   const [text, setText] = useState("");
@@ -19,23 +20,33 @@ const TodoForm = () => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="p-4 mb-8 border rounded-lg shadow"
+      style={{
+        padding: "1.5rem",
+        marginBottom: "1.5rem",
+        borderRadius: ".5rem",
+        boxShadow: "0 2px 8px rgb(0 0 0/20%)",
+      }}
     >
-      <label htmlFor="text" className="block mb-4">
-        <span className="block text-center mb-2">Add Item</span>
-        <input
-          onChange={(e) => setText(e.target.value)}
-          value={text}
-          className="w-full py-1.5 px-4 border border-teal-300 rounded-full outline-none hover:bg-slate-100 focus:border-teal-500"
-          type="text"
-          id="text"
-          placeholder="Add Item..."
-        />
-      </label>
+      <TextField
+        onChange={(e) => setText(e.target.value)}
+        value={text}
+        variant="outlined"
+        label="Add Item"
+        type="text"
+        id="text"
+        size="small"
+        fullWidth
+        sx={{
+          marginBottom: "1rem",
+          "& .MuiInputBase-root": {
+            borderRadius: 9999,
+          },
+        }}
+      />
       <div className="text-right">
-        <button className="px-6 py-1.5 rounded-full bg-sky-600 text-white hover:bg-sky-500 transition">
+        <Button type="submit" sx={{ borderRadius: 9999 }} variant="contained">
           Add
-        </button>
+        </Button>
       </div>
     </form>
   );

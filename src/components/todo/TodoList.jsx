@@ -1,3 +1,4 @@
+import { List, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
@@ -6,24 +7,32 @@ const TodoList = () => {
 
   if (loading) {
     return (
-      <h1 className="py-8 text-center text-blue-500 text-3xl">Loading...</h1>
+      <Typography variant="h3" p={4} textAlign="center" color="primary">
+        Loading...
+      </Typography>
     );
   }
 
   if (!loading && error) {
-    return <h1 className="py-8 text-center text-blue-500 text-3xl">{error}</h1>;
+    return (
+      <Typography variant="h3" p={4} textAlign="center" color="primary">
+        {error}
+      </Typography>
+    );
   }
 
   return (
-    <ul className="grid gap-2">
+    <List>
       {!todos.length ? (
-        <h1 className="py-8 text-center text-blue-500 text-3xl">Empty</h1>
+        <Typography variant="h3" p={4} textAlign="center" color="primary">
+          Empty
+        </Typography>
       ) : (
         todos.map((todo, index) => (
           <TodoItem key={todo.id} todo={todo} number={index + 1} />
         ))
       )}
-    </ul>
+    </List>
   );
 };
 
