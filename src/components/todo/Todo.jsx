@@ -43,18 +43,14 @@ const Todo = () => {
         <UpdateTodo />
       </Container>
       <footer>
-        <Container py={4}>
-          <Typography
-            variant="body1"
-            color="primary"
-            sx={{ textAlign: "center", py: 4 }}
-          >
+        <Container sx={{ py: 4, textAlign: "center" }}>
+          <Typography gutterBottom variant="body1" color="primary">
             Created with React, Redux, Firebase and Material UI
           </Typography>
           <Typography variant="h5" color="error" gutterBottom fontWeight={700}>
             Same Todo with another library.
           </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: 'center', gap: 1 }}>
             <Button
               variant="contained"
               color="primary"
