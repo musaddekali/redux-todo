@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Box, Button } from "@mui/material";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -49,8 +49,37 @@ const Todo = () => {
             color="primary"
             sx={{ textAlign: "center", py: 4 }}
           >
-            Created with React, Redux, Firebase and Tailwind css.
+            Created with React, Redux, Firebase and Material UI
           </Typography>
+          <Typography variant="h5" color="error" gutterBottom fontWeight={700}>
+            Same Todo with another library.
+          </Typography>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              component="a"
+              href="https://redux-todo1.netlify.app"
+            >
+              Tailwind CSS
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              component="a"
+              href="https://redux-bs-todo1.netlify.app"
+            >
+              Bootstrap 5
+            </Button>
+            <Button
+              variant="contained"
+              color="warning"
+              component="a"
+              href="https://redux-mui-todo1.netlify.app"
+            >
+              Material UI
+            </Button>
+          </Box>
         </Container>
       </footer>
     </>
