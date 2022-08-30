@@ -68,7 +68,7 @@ const UpdateTodo = () => {
 
           <DialogActions>
             <Button onClick={() => dispatch(closeUpdateModel())}>Cancel</Button>
-            <Button variant='contained' type="submit">Save Changes</Button>
+            <Button variant='contained' type="submit">Save</Button>
           </DialogActions>
         </form>
       </DialogContent>
